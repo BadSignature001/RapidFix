@@ -8,3 +8,4 @@ public interface UserService {
 	public UserReg registerUser(UserReg user)throws UserException ;
 
 }
+//sahilbhukal

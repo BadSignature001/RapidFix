@@ -18,8 +18,8 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception{
 	httpSecurity.csrf (AbstractHttpConfigurer::disable)
-	.authorizeHttpRequests (request -> request.requestMatchers ("/endpoint/users/signup"). permitAll()
-			.anyRequest().authenticated())
+	.authorizeHttpRequests (request -> request.requestMatchers ("/endpoint/**").permitAll()
+			.anyRequest().permitAll())
 	.sessionManagement (manager->manager.sessionCreationPolicy (SessionCreationPolicy.STATELESS)) ;
 			return httpSecurity.build();
 	}
@@ -30,3 +30,4 @@ public class SecurityConfig {
     } 
 }
 
+// sahil bhukal

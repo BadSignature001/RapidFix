@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 
 
@@ -18,20 +19,20 @@ public class UserReg {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id ;
 	
-	@NotBlank
+	@NotEmpty
 	private String username ;
-	@NotBlank
+	@NotEmpty
 	private String mobileNo ;
-	@NotBlank
+	@NotEmpty
 	private String password ;
-	@NotBlank
+	@NotEmpty
 	@Transient
 	private String confirmPassword ;
 	
 	
 	
 	
-	// Getter and Setters
+	
 	
 	
 	public Integer getId() {
@@ -68,15 +69,12 @@ public class UserReg {
 	
 	
 	
-	// Constructor
-	
 	public UserReg() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public UserReg(Integer id, @NotBlank String username, @NotBlank String mobileNo, @NotBlank String password,
-			@NotBlank String confirmPassword) {
+	public UserReg(Integer id, @NotEmpty String username, @NotEmpty String mobileNo, @NotEmpty String password,
+			@NotEmpty String confirmPassword) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -87,13 +85,21 @@ public class UserReg {
 	
 	
 	
-	//to String
+	
 	
 	@Override
 	public String toString() {
 		return "UserReg [id=" + id + ", username=" + username + ", mobileNo=" + mobileNo + ", password=" + password
 				+ ", confirmPassword=" + confirmPassword + "]";
 	}
+
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -102,3 +108,5 @@ public class UserReg {
 	
 
 }
+
+// sahilbhukal
