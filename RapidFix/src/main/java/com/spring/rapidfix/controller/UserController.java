@@ -1,33 +1,51 @@
 package com.spring.rapidfix.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import com.spring.rapidfix.entities.UserReg;
 import com.spring.rapidfix.exceptions.UserException;
 import com.spring.rapidfix.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
-import jakarta.validation.Valid;
-
-@RestController
+@Controller
 @RequestMapping("/endpoint/users")
 public class UserController {
-	
-	@Autowired
-	private UserService userService ;
-	
-	@PostMapping("/signup")
-	public ResponseEntity<UserReg> registerUser(@Valid @RequestBody UserReg user)throws UserException
-	{
-		userService.registerUser(user) ;
-		
-		return new ResponseEntity<UserReg>(user,HttpStatus.CREATED);	
-	}
 
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/homepage")
+    public String showSignUpForm(Model model) {
+        model.addAttribute("user", new UserReg());
+        return "UserReg";
+    }
+
+    @PostMapping("/signup")
+    public String registerUser(UserReg user, Model model) {
+        try {
+            userService.registerUser(user);
+            return "redirect:/endpoint/users/loginpage";
+        } catch (UserException e) {
+            model.addAttribute("error", e.getMessage());
+            return "UserReg";
+        }
+    }
+
+    @GetMapping("/loginpage")
+    public String showLoginPage() {
+        return "UserLogin";
+    }
+    
+    @GetMapping("/usermainpage")
+    public String showMainPage() {
+        return "UserMainPage";
+    }
 }
+
+// sahil bhukal
