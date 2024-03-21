@@ -106,7 +106,7 @@
       <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
       <button type="submit">Register as a User</button>
     </form>
-    <a href="#">Register as a Worker</a>
+    <a href="/endpoint/users/rapidfixcommunity">Join to Community</a>
 
   </div>
 </body>

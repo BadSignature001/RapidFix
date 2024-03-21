@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.spring.rapidfix.entities.RidersReg;
 import com.spring.rapidfix.entities.UserReg;
 import com.spring.rapidfix.exceptions.UserException;
 import com.spring.rapidfix.service.UserService;
@@ -42,9 +44,10 @@ public class UserController {
         return "UserLogin";
     }
     
-    @GetMapping("/usermainpage")
-    public String showMainPage() {
-        return "UserMainPage";
+    @GetMapping("/rapidfixcommunity")
+    public String showMainPage(Model model) {
+    	model.addAttribute("worker", new RidersReg()) ;
+        return "RapidFixCommunity";
     }
 }
 
