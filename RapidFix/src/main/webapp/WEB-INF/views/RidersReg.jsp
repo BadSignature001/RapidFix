@@ -137,13 +137,13 @@ button[type="submit"]:hover {
 		<script>
 		
 		const firebaseConfig = {
-				  apiKey: "AIzaSyA5oaLE7e_FLfSuLirAmI35PodaPvs9Fkc",
-				  authDomain: "rapidfix-44ff2.firebaseapp.com",
-				  projectId: "rapidfix-44ff2",
-				  storageBucket: "rapidfix-44ff2.appspot.com",
-				  messagingSenderId: "238897333660",
-				  appId: "1:238897333660:web:718ceb6933ad25d2e8b459",
-				  measurementId: "G-QH469R3T3E"
+				apiKey: "YOUR_API_KEY",
+        			authDomain: "YOUR_AUTH_DOMAIN",
+       				projectId: "YOUR_PROJECT_ID",
+        			storageBucket: "YOUR_STORAGE_BUCKET",
+        			messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        			appId: "YOUR_APP_ID",
+        			measurementId: "YOUR_MEASUREMENT_ID"
 				};
 		 firebase.initializeApp(firebaseConfig);
 
