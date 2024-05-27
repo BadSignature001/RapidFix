@@ -5,6 +5,7 @@ package com.spring.rapidfix.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import com.spring.rapidfix.entities.CurrentLocation;
+
 import com.spring.rapidfix.entities.OrderFuelForm;
 import com.spring.rapidfix.entities.RidersReg;
 import com.spring.rapidfix.entities.UserReg;
@@ -21,6 +23,7 @@ import com.spring.rapidfix.exceptions.UserException;
 import com.spring.rapidfix.repository.CurrentLocationRepository;
 
 import com.spring.rapidfix.response.AuthenticationResponse;
+
 import com.spring.rapidfix.service.RidersService;
 import com.spring.rapidfix.service.UserService;
 
@@ -48,6 +51,10 @@ public class UserController {
 
 	@Autowired
 	private RidersService riderService;
+	
+	
+	
+	 
 	
 
 	
@@ -109,6 +116,9 @@ public class UserController {
         return ResponseEntity.ok(nearbyRiders.toString());
     	       
     }
+    
+    
+    
     
     
     /*---- I SUCCESSFULLY INTEGRATED THIS IN ORDERFUEL ----*/
