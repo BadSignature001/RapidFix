@@ -1,6 +1,6 @@
 const socket = io();
 
-// Generate a unique session ID
+
 const sessionId = (function () {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -12,8 +12,8 @@ const sessionId = (function () {
   };
 })();
 
-const mySessionId = sessionId(); // Generate session ID
-socket.emit("join-session", mySessionId); // Emit session ID to server
+const mySessionId = sessionId(); 
+socket.emit("join-session", mySessionId); 
 
 if (navigator.geolocation) {
   navigator.geolocation.watchPosition(
@@ -59,6 +59,6 @@ socket.on("user-disconnected", (id) => {
   }
 });
 
-// Display the shareable URL
+
 const url = `${window.location.origin}/track/${mySessionId}`;
 document.body.insertAdjacentHTML('beforeend', `<p>Share this URL: <a href="${url}">${url}</a></p>`);
