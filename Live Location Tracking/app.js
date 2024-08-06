@@ -50,7 +50,7 @@ app.get("/track/:id", function (req, res) {
   res.render("track", { sessionId: req.params.id });
 });
 
-// Start the server
+
 server.listen(3000, function () {
   console.log("Server is running on http://localhost:3000");
 });
