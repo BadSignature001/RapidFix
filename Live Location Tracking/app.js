@@ -7,7 +7,7 @@ const socketio = require("socket.io");
 const server = http.createServer(app);
 const io = socketio(server);
 
-// Set view engine to EJS
+
 app.set("view engine", "ejs");
 
 app.use(express.static(path.join(__dirname, "public")));
